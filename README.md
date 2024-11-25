@@ -1,0 +1,1 @@
+Various code translated to imaginary Jevko-based programming languages to figure out a design for a minimal language without actually implementing it. For now. Also it's kind of fun and educational.
