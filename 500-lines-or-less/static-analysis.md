@@ -87,3 +87,74 @@ function[  unstable[]
   ]
 ]
 ```
+
+---
+
+```julia
+function stable()
+  sum = 0.0
+  for i=1:100
+    sum += i/2
+  end
+  return sum
+end
+```
+
+```
+function[  stable[]
+  let[ [sum] [0.0] ]
+  for[
+    let[ [i] [1] ]
+    <=[ [i] [100] ]
+    /set[ [i] +[[i][1]] ]
+
+    /set[  [sum]  +[ [sum] /[[i][2]] ]  ]
+  ]
+]
+```
+
+---
+
+```julia
+function unstable()
+  sum = 0
+  for i=1:10000
+    sum += i/2
+  end
+  return sum
+end
+```
+
+```
+function[  unstable[]
+  let[ [sum] [0] ]
+  for[
+    let[ [i] [1] ]
+    <=[ [i] [10000] ]
+    /set[ [i] +[[i][1]] ]
+
+    /set[  [sum]  +[ [sum] /[[i][2]] ]  ]
+  ]
+]
+```
+
+---
+
+```julia
+function foo(x,y)
+  z = x + y
+  return 2 * z
+end
+
+code_typed(foo,(Int64,Int64))
+```
+
+```
+function[  foo[[x][y]]
+  const[ [z] +[[x][y]] ]
+  return[*[[2][z]]]
+]
+
+code_typed[ [foo] /tuple[[Int64][Int64]] ]
+```
+
