@@ -158,3 +158,60 @@ function[  foo[[x][y]]
 code_typed[ [foo] /tuple[[Int64][Int64]] ]
 ```
 
+---
+
+```julia
+1-element Array{Any,1}:
+:($(Expr(:lambda, {:x,:y}, {{:z},{{:x,Int64,0},{:y,Int64,0},{:z,Int64,18}},{}},
+ :(begin  # none, line 2:
+        z = (top(box))(Int64,(top(add_int))(x::Int64,y::Int64))::Int64 # line 3:
+        return (top(box))(Int64,(top(mul_int))(2,z::Int64))::Int64
+    end::Int64))))
+```
+
+that's a tough one; something like:
+
+```
+/Array[/Dollar[Expr[
+  :[lambda]
+  /Set[:[x]:[y]]
+  /Set[
+    /Set[:[z]]
+    /Set[
+      /Set[:[x][Int64][0]]
+      /Set[:[y][Int64][0]]
+      /Set[:[z][Int64][18]]
+    ]
+    /Set[]
+  ]
+  :[[begin]   none, line 2:
+    /set[
+      [z]
+      Int64[/call[
+        top[box]
+        [Int64]
+        /call[
+          top[add_int]
+          Int64[x]
+          Int64[y]
+        ]
+      ]]
+    ]   line 3:
+    return[
+      Int64[/call[
+        top[box]
+        [Int64]
+        /call[
+          top[mul_int]
+          [2]
+          Int64[z]
+        ]
+      ]]
+    ]
+    Int64[end]
+  ]
+]]]
+```
+
+---
+
