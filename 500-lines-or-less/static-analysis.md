@@ -215,3 +215,138 @@ that's a tough one; something like:
 
 ---
 
+```julia
+julia> e = code_typed(foo,(Int64,Int64))[1]
+:($(Expr(:lambda, {:x,:y}, {{:z},{{:x,Int64,0},{:y,Int64,0},{:z,Int64,18}},{}},
+ :(begin  # none, line 2:
+        z = (top(box))(Int64,(top(add_int))(x::Int64,y::Int64))::Int64 # line 3:
+        return (top(box))(Int64,(top(mul_int))(2,z::Int64))::Int64
+    end::Int64))))
+```
+
+```
+[jev] /set[  [e]  /get[code_typed[ [foo] /tuple[[Int64][Int64]] ][1]]  ]
+:[/Dollar[Expr[
+  :[lambda]
+  /Set[:[x]:[y]]
+  /Set[
+    /Set[:[z]]
+    /Set[
+      /Set[:[x][Int64][0]]
+      /Set[:[y][Int64][0]]
+      /Set[:[z][Int64][18]]
+    ]
+    /Set[]
+  ]
+  :[[begin]   none, line 2:
+    /set[
+      [z]
+      Int64[/call[
+        top[box]
+        [Int64]
+        /call[
+          top[add_int]
+          Int64[x]
+          Int64[y]
+        ]
+      ]]
+    ]   line 3:
+    return[
+      Int64[/call[
+        top[box]
+        [Int64]
+        /call[
+          top[mul_int]
+          [2]
+          Int64[z]
+        ]
+      ]]
+    ]
+    Int64[end]
+  ]
+]]]
+```
+
+---
+
+```julia
+julia> names(e)
+3-element Array{Symbol,1}:
+ :head
+ :args
+ :typ 
+```
+
+```
+[jev] names[e]
+3-element Array[[Symbol][1]]:
+  :[head]
+  :[args]
+  :[typ]
+```
+
+---
+
+```julia
+julia> e.head
+:lambda
+
+julia> e.typ
+Any
+
+julia> e.args
+3-element Array{Any,1}:
+ {:x,:y}
+ {{:z},{{:x,Int64,0},{:y,Int64,0},{:z,Int64,18}},{}}
+ :(begin  # none, line 2:
+        z = (top(box))(Int64,(top(add_int))(x::Int64,y::Int64))::Int64 # line 3:
+        return (top(box))(Int64,(top(mul_int))(2,z::Int64))::Int64
+    end::Int64)
+```
+
+```
+[jev] /get[ [e] [head] ]
+:[lambda]
+
+[jev] /get[ [e] [typ] ]
+[Any]
+
+[jev] /get[ [e] [args] ]
+3-element Array[[Any][1]]:
+  /Set[:[x]:[y]]
+  /Set[
+    /Set[:[z]]
+    /Set[
+      /Set[:[x][Int64][0]]
+      /Set[:[y][Int64][0]]
+      /Set[:[z][Int64][18]]
+      /Set[]
+    ]
+    :[[begin]   none, line 2:
+      /set[
+        [z]
+        Int64[/call[
+          top[box]
+          [Int64]
+          /call[
+            top[add_int]
+            Int64[x]
+            Int64[y]
+          ]
+        ]]
+      ]   line 3:
+      return[
+        Int64[/call[
+          top[box]
+          [Int64]
+          /call[
+            top[mul_int]
+            [2]
+            Int64[z]
+          ]
+        ]]
+      ]
+      Int64[end]
+    ]
+  ]
+```
