@@ -350,3 +350,19 @@ julia> e.args
     ]
   ]
 ```
+
+---
+
+```julia
+julia> e.args[1] # names of arguments as symbols
+2-element Array{Any,1}:
+ :x
+ :y
+```
+
+```
+[jev] /get[ [e] [args] [1] ]   names of arguments as symbols
+2-element Array[[Any][1]]
+  :[x]
+  :[y]
+```
