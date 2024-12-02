@@ -366,3 +366,21 @@ julia> e.args[1] # names of arguments as symbols
   :[x]
   :[y]
 ```
+
+---
+
+```julia
+julia> e.args[2] # three lists of variable metadata
+3-element Array{Any,1}:
+ {:z}                                     
+ {{:x,Int64,0},{:y,Int64,0},{:z,Int64,18}}
+ {}  
+```
+
+```
+[jev] /get[ [e] [args] [2] ]   three lists of variable metadata
+3-element Array[[Any][1]]
+  /Set[:[z]]
+  /Set[/Set[:[x][Int64][0]]/Set[:[y][Int64][0]]/Set[:[z][Int64][18]]]
+  /Set[]
+```
