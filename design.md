@@ -244,11 +244,78 @@ const[[parsePipe] /arrow[[iter]
         /pipe[/get[[tok][text][trim]] /call[]]
         [']
       ]]
-      ;[note: we discard the /pipe's suffix]
+      note: we discard the /pipe's suffix
       /pipe[/get[[iter][append]] /call[toks]]
       return[]
     ]
     /set[ [p1] [tok] ]
+  ]
+]]
+```
+
+# 2024-12-12
+
+Now with more M-expressions!
+
+```
+const[parsePipe; /arrow[iter;
+  const[toks; /list[
+    pullPrefixTok[iter]
+    /spread[pullSubToks[iter]]
+  ]]
+
+  let[ p1; pullPrefixTok[iter] ]
+  while[true;
+    /pipe[
+      /get[toks;unshift]
+      /call[p1]
+    ]
+    const[ st; pullSubToks[iter] ]
+    if[=[ /get[st;length] 1 ]
+      const[ tok; /get[st;0] ]
+      /assert[=[ /get[tok;type] 'suffix' ]]
+      if[
+        !=[
+          /pipe[
+            /get[tok;text;trim]
+            /call[]
+          ]
+          ''
+        ]
+
+        ;[special case if we are piping into f[i] -- transform that to f[i]]
+        /pipe[
+          /get[st;unshift]
+          /call[/dict[
+            type; 'prefix'
+            text; ''
+          ]]
+        ]
+        /pipe[
+          /get[st;push]
+          /call[/dict[
+            type; 'suffix'
+            text; ''
+          ]]
+        ]
+      ]
+    ]
+    /pipe[
+      /get[toks;push]
+      /call[/spread[st]]
+    ]
+
+    const[ tok; pullTok[iter] ]
+    if[=[ /get[tok;type] 'suffix' ]
+      /assert[=[
+        /pipe[/get[tok;text;trim] /call[]]
+        ''
+      ]]
+      note: we discard the /pipe's suffix
+      /pipe[/get[iter;append] /call[toks]]
+      return[]
+    ]
+    /set[ p1; tok; ]
   ]
 ]]
 ```
