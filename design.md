@@ -304,3 +304,51 @@ const[parsePipe; /arrow[iter;
   ]
 ]]
 ```
+
+# 2024-12-15
+
+This M-expression-like syntax:
+
+```
+export[
+  const[ astToCode; /arrow[ ast;
+    const[ /dict[type] ast ]
+    const[ gen; /get[generators;get][type] ]
+    if[=[ gen; undefined ]
+      return['?todo?']
+    ]
+    return[gen[ast]]
+  ]]
+]
+```
+
+would compile to this:
+
+```js
+export const astToCode = (ast) => {
+  const {type} = ast
+  const gen = generators.get(type)
+  if (gen === undefined) {
+    return '?todo?'
+  }
+  return gen(ast)
+}
+```
+
+The same could be generated from this even more regular/primitive syntax:
+
+```
+export[
+  const[[astToCode] /arrow[[ast]
+    const[ /dict[type] [ast] ]
+    const[ [gen] /pipe[
+      /get[[generators][get]]
+      /call[type]
+    ]]
+    if[=[[gen][undefined]]
+      return['?todo?]
+    ]
+    return[gen[ast]]
+  ]]
+]
+```
