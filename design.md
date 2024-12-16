@@ -360,3 +360,41 @@ Format strings.
 ```
 f'Hello, $[name]!'
 ```
+
+Conditionals.
+
+```
+[ atom[x]? x; T? ff[car[x]] ]
+```
+
+Reviving M-expressions as K-expressions.
+
+K-exp. KEXP.
+
+M-exp was:
+
+```
+label[ff;λ[[x];[atom[x] → x; T → ff[car[x]]]]]
+```
+
+K-exp is:
+
+```
+label[ff; lambda[x;
+  [ atom[x]? x; T? ff[car[x]] ]
+]]
+```
+
+J-exp is:
+
+```
+label[[ff] lambda[[x]
+  cond[ if[atom[x]] [x] if[T] ff[car[x]] ]
+]]
+```
+
+JS is:
+
+```
+const ff = (x) => atom(x)? x: true? ff(car(x)): undefined
+```
