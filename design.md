@@ -352,3 +352,11 @@ export[
   ]]
 ]
 ```
+
+# 2024-12-16
+
+Format strings.
+
+```
+f'Hello, $[name]!'
+```
