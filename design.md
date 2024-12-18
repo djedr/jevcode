@@ -398,3 +398,14 @@ JS is:
 ```
 const ff = (x) => atom(x)? x: true? ff(car(x)): undefined
 ```
+
+# 2024-12-18
+
+Strings.
+
+```
+['abc]  ->  `abc`
+['abc[n]def]  ->  `abc\ndef`
+['abc\ndef]  ->  `abc\\ndef`
+['$`]  ->  `\$\``
+```
