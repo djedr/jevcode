@@ -421,3 +421,21 @@ x['...] -> x[['...]]
 ``````
 x[`'...'`]
 ``````
+
+# 2024-12-21
+
+Winter Solstice.
+
+```
+/str[abc[n]def]
+```
+
+|
+v
+
+```
+'abc\ndef'
+```
+
+So instead of `['abc[n]def]` we'd have `/str[abc[n]def]` -- less special-casing.
+
