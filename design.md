@@ -439,3 +439,6 @@ v
 
 So instead of `['abc[n]def]` we'd have `/str[abc[n]def]` -- less special-casing.
 
+# 2024-12-22
+
+The disadvantage is `f['abc]` becomes `f[/str[abc]]` but less and less it seems to matter.
