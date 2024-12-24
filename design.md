@@ -452,3 +452,15 @@ Think I'll just allow heredocs.
 ```
 
 Some version at least.
+
+# 2024-12-24
+
+Compile-time execution.
+
+Makes a preprocessor/macro system.
+
+Can be based around tokens/trees (Jev-specific) or strings (universal).
+
+Could have both.
+
+Would need heredocs to be universal.
