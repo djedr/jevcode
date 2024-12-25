@@ -464,3 +464,15 @@ Can be based around tokens/trees (Jev-specific) or strings (universal).
 Could have both.
 
 Would need heredocs to be universal.
+
+# 2024-12-25
+
+Another take on heredocs.
+
+``````
+/str`[...]`
+/str``[...]``
+etc.
+e.g.:
+/str`[ unbalanced brackets: ][ ]`
+``````
