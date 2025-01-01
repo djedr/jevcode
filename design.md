@@ -504,3 +504,29 @@ or maybe
 ```
 
 ruminating...
+
+# 2024-01-01
+
+it'll be
+
+```
+/str['...']
+/str[`'...'`]
+/str[``'...'``]
+/str[```'...'```]
+```
+
+etc.
+
+Then we'd also have:
+
+```
+/tstr['...$[...]...']
+```
+
+for template strings.
+
+To think about: should `['...]` be special-cased?
+E.g. make it `['...']` and have it be just a JS string + optional `$[...]` (if any substitution found, then it'll compile to a template, else regular string).
+
+What happens to `f['...']` then? Perhaps it should be transformed into `f[['...']]` at tokenizer-level?
