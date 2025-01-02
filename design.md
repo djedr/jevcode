@@ -544,3 +544,99 @@ To evaluate a macroexpression, compile a version M of the program P whose output
 Version M would be like P, except all macroexpressions and macrodeclarations would be normal expressions and declarations. The entrypoint of P would be replaced with the context where the macroexpression under evaluation resides. The expression would have access to the entire program, both the macro and the regular functions and variables.
 
 This may be going too far. We shall see.
+
+# 2024-01-03
+
+However only expressions which return tokens can be macroexpanded/preceded with `#`. If an expression which does not evaluate to a stream of tokens is evaluated as a macro, an error is raised.
+
+Example code that uses a macro:
+
+```
+const[ [isOdd] /arrow[[n] 
+  ...
+]]
+
+const[ [f] /arrow[[n]
+  return[*[ [n] [2] ]]
+]]
+
+const[ [g] /arrow[[m]
+  const[ [h] /arrow[[p]
+    return[+[ [p] [2] ]]
+  ]]
+
+  const[ [x] #ifx[
+    isOdd[f[5]]
+    @['hello]
+    @['hello $[h[3]]]
+  ]]
+
+  return[x]
+]]
+```
+
+When compiling
+
+```
+#ifx[
+  isOdd[f[5]]
+  @['hello]
+  @['hello $[h[3]]]
+]
+```
+
+we first transform the program into something like:
+
+```
+const[ [isOdd] /arrow[[n] 
+  ...
+]]
+
+const[ [f] /arrow[[n]
+  return[*[ [n] [2] ]]
+]]
+
+const[ [g] /arrow[[m]
+  const[ [h] /arrow[[p]
+    return[+[ [p] [2] ]]
+  ]]
+
+  return[ifx[
+    isOdd[f[5]]
+    @['hello]
+    @['hello $[h[3]]]
+  ]]
+]]
+
+g[]
+```
+
+then we compile and execute that to obtain the result:
+
+```
+['hello 5]
+```
+
+then we substitute this result in place of the macro:
+
+```
+const[ [isOdd] /arrow[[n] 
+  ...
+]]
+
+const[ [f] /arrow[[n]
+  return[*[ [n] [2] ]]
+]]
+
+const[ [g] /arrow[[m]
+  const[ [h] /arrow[[p]
+    return[+[ [p] [2] ]]
+  ]]
+
+  const[ [x] ['hello 5] ]
+
+  return[x]
+]]
+```
+
+this is then compiled to produce the final macroexpanded result.
