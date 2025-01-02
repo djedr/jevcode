@@ -530,3 +530,17 @@ To think about: should `['...]` be special-cased?
 E.g. make it `['...']` and have it be just a JS string + optional `$[...]` (if any substitution found, then it'll compile to a template, else regular string).
 
 What happens to `f['...']` then? Perhaps it should be transformed into `f[['...']]` at tokenizer-level?
+
+# 2024-01-02
+
+Macros. Here is an idea. Not sure if workable.
+
+A macroexpression is identified by a `#` prefix, e.g. `#if`.
+
+A macroexpression returns tokens.
+
+To evaluate a macroexpression, compile a version M of the program P whose output will be the result of evaluating the expression. This result will be substituted in place of the expression in the "original" program P which will then be compiled to produce the final result R.
+
+Version M would be like P, except all macroexpressions and macrodeclarations would be normal expressions and declarations. The entrypoint of P would be replaced with the context where the macroexpression under evaluation resides. The expression would have access to the entire program, both the macro and the regular functions and variables.
+
+This may be going too far. We shall see.
