@@ -640,3 +640,23 @@ const[ [g] /arrow[[m]
 ```
 
 this is then compiled to produce the final macroexpanded result.
+
+# 2024-01-04
+
+No sigils needed.
+
+```
+/macro[f[x]] instead of #f[x]
+/quote['hello] instead of @['hello]
+etc.
+```
+
+More verbose -- yes. Optimizing that though proves counterproductive.
+
+# 2024-01-06
+
+I mean optimizing for being the least verbose is counterproductive.
+
+Interesting to think about: where are the points of diminishing returns, how to balance dimensions which are at odds? Ultimately some provisional decisions must push things forward. To see how things go and gather more data, if for no other reason.
+
+It's incredible that anything can be accomplished at all.
