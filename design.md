@@ -660,3 +660,7 @@ I mean optimizing for being the least verbose is counterproductive.
 Interesting to think about: where are the points of diminishing returns, how to balance dimensions which are at odds? Ultimately some provisional decisions must push things forward. To see how things go and gather more data, if for no other reason.
 
 It's incredible that anything can be accomplished at all.
+
+# 2024-01-07
+
+Losing momentum is real. And so is sustaining it.
