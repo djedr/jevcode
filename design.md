@@ -668,3 +668,16 @@ Losing momentum is real. And so is sustaining it.
 # 2024-01-08
 
 A tree of freely diverging ideas. Or is it a network?
+
+# 2024-01-09
+
+```
+ctx.fillRect(130, 190, 40, 60)
+ctx.fillRect[ [130] [190] [40] [60] ]
+/call[
+  /get[ [ctx] [fillRect] ]
+  [130] [190] [40] [60]
+]
+```
+
+Going further would be too far.
