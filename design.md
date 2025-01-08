@@ -664,3 +664,7 @@ It's incredible that anything can be accomplished at all.
 # 2024-01-07
 
 Losing momentum is real. And so is sustaining it.
+
+# 2024-01-08
+
+A tree of freely diverging ideas. Or is it a network?
