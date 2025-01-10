@@ -505,7 +505,7 @@ or maybe
 
 ruminating...
 
-# 2024-01-01
+# 2025-01-01
 
 it'll be
 
@@ -531,7 +531,7 @@ E.g. make it `['...']` and have it be just a JS string + optional `$[...]` (if a
 
 What happens to `f['...']` then? Perhaps it should be transformed into `f[['...']]` at tokenizer-level?
 
-# 2024-01-02
+# 2025-01-02
 
 Macros. Here is an idea. Not sure if workable.
 
@@ -545,7 +545,7 @@ Version M would be like P, except all macroexpressions and macrodeclarations wou
 
 This may be going too far. We shall see.
 
-# 2024-01-03
+# 2025-01-03
 
 However only expressions which return tokens can be macroexpanded/preceded with `#`. If an expression which does not evaluate to a stream of tokens is evaluated as a macro, an error is raised.
 
@@ -641,7 +641,7 @@ const[ [g] /arrow[[m]
 
 this is then compiled to produce the final macroexpanded result.
 
-# 2024-01-04
+# 2025-01-04
 
 No sigils needed.
 
@@ -653,7 +653,7 @@ etc.
 
 More verbose -- yes. Optimizing that though proves counterproductive.
 
-# 2024-01-06
+# 2025-01-06
 
 I mean optimizing for being the least verbose is counterproductive.
 
@@ -661,15 +661,15 @@ Interesting to think about: where are the points of diminishing returns, how to 
 
 It's incredible that anything can be accomplished at all.
 
-# 2024-01-07
+# 2025-01-07
 
 Losing momentum is real. And so is sustaining it.
 
-# 2024-01-08
+# 2025-01-08
 
 A tree of freely diverging ideas. Or is it a network?
 
-# 2024-01-09
+# 2025-01-09
 
 ```
 ctx.fillRect(130, 190, 40, 60)
@@ -681,3 +681,37 @@ ctx.fillRect[ [130] [190] [40] [60] ]
 ```
 
 Going further would be too far.
+
+# 2025-01-10
+
+Forgot to update the year. Haha. :D xD
+
+Corrected.
+
+Some weird JS translated to Jev.
+
+```js
+[] == ![] // true
+```
+
+```
+==[ /list[] /not[/list[]] ]   true
+```
+
+or
+
+```
+/loose-equal[ /list[] /not[/list[]] ]   true
+```
+
+Maybe.
+
+BTW perhaps `=` should have it's own semantics.
+
+```js
+!!"false" === !!"true" // true
+```
+
+```
+=[ /not[/not[/str['false']]] /not[/not[/str['true']]] ]   true
+```
