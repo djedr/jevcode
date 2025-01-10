@@ -715,3 +715,54 @@ BTW perhaps `=` should have it's own semantics.
 ```
 =[ /not[/not[/str['false']]] /not[/not[/str['true']]] ]   true
 ```
+
+# 2025-01-11
+
+Rather not support class creation.
+
+```js
+class Person extends Entity {
+  name;
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}`);
+  }
+}
+```
+
+But it could look like
+
+```
+class[ [Person] extends[Entity]
+  [name]
+
+  constructor[name] [
+    /set[
+      /get[[this][name]]
+      [name]
+    ]
+  ]
+
+  introduceSelf[] [
+    /log[/str['Hi! I'm $[/get[[this][name]]]']]
+  ]
+]
+```
+
+Maybe.
+
+Private fields and methods could be:
+
+```
+class[ [A] extends[B]
+  /private[field]
+
+  /private-method[someMethod][] [
+    /log[/str['Hello?']]
+  ]
+]
+```
