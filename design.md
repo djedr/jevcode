@@ -766,3 +766,22 @@ class[ [A] extends[B]
   ]
 ]
 ```
+
+# 2025-01-12
+
+A little fun with C.
+
+```
+#include[stdio.h]
+
+/function[
+  /return-type[int]
+  main[
+    /arg[ [argc] /type[int] ]
+    /arg[ [argv] /type[/ptr[/ptr[char]]] ]
+  ]
+  printf[/str['Hello, World!']]
+  return[0]
+]
+```
+
