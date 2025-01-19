@@ -800,3 +800,36 @@ Yet another encoding(s) for HTML/XML.
 ```
 \input/[].type[checkbox].id[scales].name[scales].[checked]
 ```
+
+# 2025-01-20
+
+```js
+const input = document.createElement('input')
+input.setAttribute('type', 'checkbox')
+input.setAttribute('id', 'scales')
+input.setAttribute('name', 'scales')
+input.setAttribute('checked', '')
+```
+
+```
+const[ [input] /call[
+  /get[[document][createElement]]
+  /str['input']
+]]
+/call[
+  /get[[input][setAttribute]]
+  /str['type'] /str['checkbox']
+]
+/call[
+  /get[[input][setAttribute]]
+  /str['id'] /str['scales']
+]
+/call[
+  /get[[input][setAttribute]]
+  /str['name'] /str['scales']
+]
+/call[
+  /get[[input][setAttribute]]
+  /str['checked'] /str['']
+]
+```
