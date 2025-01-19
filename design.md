@@ -785,3 +785,18 @@ A little fun with C.
 ]
 ```
 
+# 2025-01-19
+
+Yet another encoding(s) for HTML/XML.
+
+```html
+<input type="checkbox" id="scales" name="scales" checked />
+```
+
+```
+\input/[].type[checkbox].id[scales].name[scales].checked/[]
+```
+
+```
+\input/[].type[checkbox].id[scales].name[scales].[checked]
+```
