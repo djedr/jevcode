@@ -833,3 +833,86 @@ const[ [input] /call[
   /str['checked'] /str['']
 ]
 ```
+
+# 2025-01-21
+
+this is what an LLM generated for me to translate:
+
+```py
+def generate_fibonacci_sequence(n):
+if n < 0:
+raise ValueError("Input must be a non-negative integer")
+if n == 0 or n == 1:
+return [n]
+fib_sequence = [0, 1]
+while fib_sequence[-1] + fib_sequence[-2] < n:
+fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+return fib_sequence
+```
+
+not even valid!
+
+let's try and fix:
+
+```py
+def generate_fibonacci_sequence(n):
+  if n < 0:
+    raise ValueError("Input must be a non-negative integer")
+  if n == 0 or n == 1:
+    return [n]
+  fib_sequence = [0, 1]
+  while fib_sequence[-1] + fib_sequence[-2] < n:
+    fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+  return fib_sequence
+```
+
+better.
+
+now let's translate:
+
+```
+def[ generate_fibonacci_sequence[n]
+  if[
+    <[ [n] [0] ]
+    raise[ValueError[/str['Input must be a non-negative integer']]]
+  ]
+  if[
+    or[
+      =[ [n] [0] ]
+      =[ [n] [1] ]
+    ]
+    return[/list[n]]
+  ]
+  /set[ [fib_sequence] /list[[0][1]] ]
+  while[
+    <[
+      +[
+        /get[
+          [fib_sequence]
+          [-1]
+        ]
+        /get[
+          [fib_sequence]
+          [-2]
+        ]
+      ]
+      [n]
+    ]
+
+    /call[
+      /get[[fib_sequence][append]]
+      +[
+        /get[
+          [fib_sequence]
+          [-1]
+        ]
+        /get[
+          [fib_sequence]
+          [-2]
+        ]
+      ]
+    ]
+  ]
+  return[fib_sequence]
+]
+```
