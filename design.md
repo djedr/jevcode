@@ -948,3 +948,54 @@ More spelled out versions of a HTML element.
   ;[no children[] means self-closing]
 ]
 ```
+
+# 2025-01-23
+
+More AI-generated code.
+
+```py
+import random
+
+def generate_random_name():
+    first_names = ["Alice", "Bob", "Charlie", "Diana", "Ethan", "Fiona"]
+    last_names = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis"]
+    
+    first_name = random.choice(first_names)
+    last_name = random.choice(last_names)
+    
+    return f"{first_name} {last_name}"
+
+# Generate and print a random name
+random_name = generate_random_name()
+print(random_name)
+```
+
+```
+import[random]
+
+def[generate_random_name[]
+  /set[ [first_names] /list[
+    /str['Alice'] /str['Bob']   /str['Charlie'] 
+    /str['Diana'] /str['Ethan'] /str['Fiona']
+  ]]
+  /set[ [last_names] /list[
+    /str['Smith'] /str['Johnson'] /str['Williams'] 
+    /str['Jones'] /str['Brown']   /str['Davis']
+  ]]
+  
+  /set[ [first_name] /call[
+    /get[[random][choice]]
+    [first_names]
+  ]]
+  /set[ [last_name] /call[
+    /get[[random][choice]]
+    [last_names]
+  ]]
+
+  return[/fstr['{[first_name]} {[last_name]}']]
+]
+
+;[Generate and print a random name]
+/set[ [random_name] generate_random_name[] ]
+print[random_name]
+```
