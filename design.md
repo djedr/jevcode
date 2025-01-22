@@ -916,3 +916,35 @@ def[ generate_fibonacci_sequence[n]
   return[fib_sequence]
 ]
 ```
+
+# 2025-01-22
+
+More spelled out versions of a HTML element.
+
+```html
+<input type="checkbox" id="scales" name="scales" checked />
+```
+
+```
+/element[
+  /tag[input]
+  /attr[type[checkbox]]
+  /attr[id[scales]]
+  /attr[name[scales]]
+  /attr[checked]
+  /self-closing[]
+]
+```
+
+```
+/element[
+  /tag[input]
+  /attributes[
+    type[checkbox]
+    id[scales]
+    name[scales]
+    [checked]
+  ]
+  ;[no children[] means self-closing]
+]
+```
