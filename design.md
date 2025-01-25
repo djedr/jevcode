@@ -1077,11 +1077,11 @@ fun[ findIntersection[
     ;[If lines are parallel, intersection point will contain infinite values]
     return[PointF[
       /[
-        [[b2] * [c1] - [b1] * [c2]]
+        -[ *[[b2][c1]] *[[b1][c2]] ]
         [delta]
       ]
       /[
-        [[a1] * [c2] - [a2] * [c1]]
+        -[ *[[a1][c2]] *[[a2][c1]] ]
         [delta]
       ]
     ]]
@@ -1094,7 +1094,7 @@ fun[ main[[args]:[Array[String]]]
     var[ [l2]
       LineF[ PointF[[0f][3f]] PointF[[10f][7f]] ]
     ]
-    println[findIntersection[l1, l2]]
+    println[findIntersection[[l1][l2]]]
     /set[ [l1] 
       LineF[ PointF[[0f][0f]] PointF[[1f][1f]] ]
     ]
