@@ -1056,15 +1056,27 @@ fun[ findIntersection[
   [l1]:[LineF]
   [l2]:[LineF]
 ] :[PointF]
-    val[ [a1] -[/get[[l1][e][y]]/get[[l1][s][y]]] ]
-    val[ [b1] -[/get[[l1][s][x]]/get[[l1][e][x]]] ]
+    val[ [a1] -[
+      /get[[l1][e][y]]
+      /get[[l1][s][y]]
+    ]]
+    val[ [b1] -[
+      /get[[l1][s][x]]
+      /get[[l1][e][x]]
+    ]]
     val[ [c1] +[
-      *[[a1] /get[[l1][s][x]]]
-      *[[b1] /get[[l1][s][y]]]
+      *[ [a1] /get[[l1][s][x]] ]
+      *[ [b1] /get[[l1][s][y]] ]
     ]]
 
-    val[ [a2] -[/get[[l2][e][y]]/get[[l2][s][y]]] ]
-    val[ [b2] -[/get[[l2][s][x]]/get[[l2][e][x]]] ]
+    val[ [a2] -[
+      /get[[l2][e][y]]
+      /get[[l2][s][y]]
+    ]]
+    val[ [b2] -[
+      /get[[l2][s][x]]
+      /get[[l2][e][x]]
+    ]]
     val[ [c2] +[
       *[ [a2] /get[[l2][s][x]] ]
       *[ [b2] /get[[l2][s][y]] ]
@@ -1103,4 +1115,38 @@ fun[ main[[args]:[Array[String]]]
     ]
     println[findIntersection[[l1][l2]]]
 ]
+```
+
+# 2025-01-25
+
+Say we invoke like this:
+
+```
+display_box[
+  [center]     viewport_middle[]
+  [size]       *[ viewport-size[] [0.75] ]
+  [border]     border[ [1px] [solid] [black] ]
+]
+```
+
+And define like this:
+
+```
+function[ display_box[/implicit-dict[
+  [center]
+  [size]
+  [border]
+]]
+  ...
+]
+```
+
+with `/dict` instead of `/implicit-dict` the call would have to be:
+
+```
+display_box[/dict[
+  [center]     viewport_middle[]
+  [size]       *[ viewport-size[] [0.75] ]
+  [border]     border[ [1px] [solid] [black] ]
+]]
 ```
