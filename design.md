@@ -1123,7 +1123,7 @@ Say we invoke like this:
 
 ```
 display_box[
-  [center]     viewport_middle[]
+  [center]     viewport-middle[]
   [size]       *[ viewport-size[] [0.75] ]
   [border]     border[ [1px] [solid] [black] ]
 ]
@@ -1145,8 +1145,20 @@ with `/dict` instead of `/implicit-dict` the call would have to be:
 
 ```
 display_box[/dict[
-  [center]     viewport_middle[]
+  [center]     viewport-middle[]
   [size]       *[ viewport-size[] [0.75] ]
   [border]     border[ [1px] [solid] [black] ]
 ]]
+```
+
+# 2025-01-27
+
+And in that box...
+
+```
+display_text[
+  [parent] [the-box]
+  [text]   /str['the hero found himself adrift in space; it's the chaotic space of imagination; beyond the limitations of the previous world, and the world before it; this is where it all ends and begins anew, where it all comes back to eventually, only to be launched back into limited existence; just to go on, see what's possible, maybe have some fun']
+  [fit]    /get[[TextFit][resize]]
+]
 ```
