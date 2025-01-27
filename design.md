@@ -1174,3 +1174,10 @@ display-answers[
 ]
 ```
 
+```
+draw-circle[
+  [center] vector2[[10][10]]
+  [radius] [10]
+  [color]  color[black]
+]
+```
