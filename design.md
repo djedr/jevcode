@@ -1122,7 +1122,7 @@ fun[ main[[args]:[Array[String]]]
 Say we invoke like this:
 
 ```
-display_box[
+display-box[
   [center]     viewport-middle[]
   [size]       *[ viewport-size[] [0.75] ]
   [border]     border[ [1px] [solid] [black] ]
@@ -1132,7 +1132,7 @@ display_box[
 And define like this:
 
 ```
-function[ display_box[/implicit-dict[
+function[ display-box[/implicit-dict[
   [center]
   [size]
   [border]
@@ -1144,7 +1144,7 @@ function[ display_box[/implicit-dict[
 with `/dict` instead of `/implicit-dict` the call would have to be:
 
 ```
-display_box[/dict[
+display-box[/dict[
   [center]     viewport-middle[]
   [size]       *[ viewport-size[] [0.75] ]
   [border]     border[ [1px] [solid] [black] ]
@@ -1156,9 +1156,21 @@ display_box[/dict[
 And in that box...
 
 ```
-display_text[
+display-text[
   [parent] [the-box]
   [text]   /str['the hero found himself adrift in space; it's the chaotic space of imagination; beyond the limitations of the previous world, and the world before it; this is where it all ends and begins anew, where it all comes back to eventually, only to be launched back into limited existence; just to go on, see what's possible, maybe have some fun']
   [fit]    /get[[TextFit][resize]]
 ]
 ```
+
+# 2025-01-28
+
+```
+display-answers[
+  [A] /str['well, what are ya gonna do about it?']
+  [B] /str['that's terrible']
+  [C] /str['this must be stopped']
+  [D] /str['that's it, I'm not having it']
+]
+```
+
